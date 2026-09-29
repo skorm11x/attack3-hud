@@ -23,7 +23,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Compile package
-        run: uv run --python ${{ matrix.python-version }} python -m py_compile src/attack3_hud/*.py
+        run: uv run --python ${{ matrix.python-version }} python -m compileall -q src/attack3_hud
 
       - name: Import smoke test
         run: |

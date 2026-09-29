@@ -17,7 +17,7 @@ jobs:
         uses: astral-sh/setup-uv@v3
 
       - name: Compile package
-        run: uv run python -m py_compile src/attack3_hud/*.py
+        run: uv run python -m compileall -q src/attack3_hud
 
       - name: Import smoke test
         run: uv run python -c "import attack3_hud; print(attack3_hud.__version__)"
