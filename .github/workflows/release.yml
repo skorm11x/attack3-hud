@@ -1,0 +1,32 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  id-token: write  # required for PyPI trusted publishing (OIDC)
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Compile package
+        run: uv run python -m py_compile src/attack3_hud/*.py
+
+      - name: Import smoke test
+        run: uv run python -c "import attack3_hud; print(attack3_hud.__version__)"
+
+      - name: Build wheel/sdist
+        run: uv build
+
+      - name: Check dist metadata
+        run: uvx twine check dist/*
+
+      - name: Publish to PyPI
+        run: uv publish

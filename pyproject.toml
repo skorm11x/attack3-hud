@@ -1,0 +1,37 @@
+[project]
+name = "attack3-hud"
+version = "0.1.0"
+description = "Cross platform HID Controller Diagnostics HUD for Logitech Attack 3"
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.10"
+authors = [{name = "Christopher J. Kosik", email = "kosik.chris.j@gmail.com"}]
+keywords = ["joystick", "logitech", "attack3", "hud", "pygame", "controller", "hid"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Games/Entertainment",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: OS Independent",
+    "License :: OSI Approved :: MIT License",
+]
+dependencies = [
+    "pygame-ce>=2.5.0",
+]
+
+[project.gui-scripts]
+attack3-hud = "attack3_hud.main:main"
+
+[project.urls]
+Homepage = "https://github.com/skorm11x/attack3-hud"
+Repository = "https://github.com/skorm11x/attack3-hud"
+Issues = "https://github.com/skorm11x/attack3-hud/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
